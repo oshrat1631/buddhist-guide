@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מדריך לשחרור מסבל בגישה הבודהיסטית</title>
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            background-color: #fefcf6;
+            color: #333;
+            margin: 0;
+            padding: 1em;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: #fff;
+            padding: 2em;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        label, select, input, button {
+            display: block;
+            width: 100%;
+            margin-top: 1em;
+            font-size: 1.1em;
+        }
+        button {
+            background-color: #6a9c78;
+            color: white;
+            border: none;
+            padding: 0.8em;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🪷 מדריך לשחרור מסבל בגישה הבודהיסטית</h1>
+        <p>המדריך הזה נועד ללוות אותך ברגישות ובחמלה – במסלול של לימוד או תמיכה רגשית.</p>
+
+        <div id="step1">
+            <label>איך נוכל לקרוא לך? (רשות)</label>
+            <input type="text" id="nameInput" placeholder="שמך...">
+            <button onclick="nextStep('step1', 'step2')">המשך</button>
+        </div>
+
+        <div id="step2" class="hidden">
+            <label>באיזו קבוצת גיל את/ה?</label>
+            <select id="ageGroup" onchange="showGender()">
+                <option disabled selected value="">בחרי/בחר</option>
+                <option value="child">מתחת לגיל 18</option>
+                <option value="adult">18 ומעלה</option>
+            </select>
+        </div>
+
+        <div id="genderDiv" class="hidden">
+            <label id="genderLabel">את/ה בן או בת?</label>
+            <select id="gender">
+                <option disabled selected value="">בחרי/בחר</option>
+                <option value="female">בת / אישה</option>
+                <option value="male">בן / גבר</option>
+                <option value="other">מעדיפ/ה לא לומר</option>
+            </select>
+            <button onclick="showPaths()">המשך לבחירת מסלול</button>
+        </div>
+
+        <div id="pathsDiv" class="hidden">
+            <h2>בחר/י את המסלול שלך:</h2>
+            <div id="pathOptions"></div>
+        </div>
+    </div>
+
+    <script>
+        function nextStep(current, next) {
+            document.getElementById(current).classList.add("hidden");
+            document.getElementById(next).classList.remove("hidden");
+        }
+
+        function showGender() {
+            const age = document.getElementById("ageGroup").value;
+            const label = document.getElementById("genderLabel");
+            label.innerText = age === "child" ? "את/ה בן או בת?" : "את/ה אישה או גבר?";
+            document.getElementById("genderDiv").classList.remove("hidden");
+        }
+
+        function showPaths() {
+            document.getElementById("genderDiv").classList.add("hidden");
+            const age = document.getElementById("ageGroup").value;
+            const pathDiv = document.getElementById("pathOptions");
+            pathDiv.innerHTML = "";
+
+            if (age === "child") {
+                pathDiv.innerHTML += '<a href="lesson.html"><button>📚 לימוד הדרך הבודהיסטית</button></a>';
+                pathDiv.innerHTML += '<button onclick="alert('מסלול הסיוע לנוער ייבנה בקרוב')">💬 סיוע רגשי מיידי לנוער</button>';
+            } else {
+                pathDiv.innerHTML += '<a href="lesson.html"><button>📚 לימוד הדרך הבודהיסטית</button></a>';
+                pathDiv.innerHTML += '<button onclick="alert('מסלול הסיוע למבוגרים ייבנה בקרוב')">💬 סיוע רגשי מיידי למבוגרים</button>';
+                pathDiv.innerHTML += '<button onclick="alert('מסלול הסיוע לנוער ייבנה בקרוב')">💬 סיוע רגשי מיידי לנוער</button>';
+            }
+
+            document.getElementById("pathsDiv").classList.remove("hidden");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מדריך לשחרור מסבל - מסלול לימוד</title>
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            background-color: #fefcf6;
+            color: #333;
+            margin: 0;
+            padding: 1em;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: #fff;
+            padding: 2em;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #6a9c78;
+        }
+        .section {
+            margin-top: 2em;
+        }
+        button {
+            margin-top: 1em;
+            background-color: #6a9c78;
+            color: white;
+            border: none;
+            padding: 0.8em;
+            border-radius: 10px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌼 מסלול לימוד הדרך הבודהיסטית</h1>
+        <p>כאן נלמד יחד את עקרונות הדרך שמובילה לשחרור מסבל. נתקדם שלב אחר שלב, בהקשבה ובקצב שלך.</p>
+
+        <div id="truths" class="section">
+            <h2>ארבע האמיתות הנאצלות</h2>
+            <ol>
+                <li><strong>יש סבל (דוקהה):</strong> החיים כוללים קשיים, אובדן, כאב ואי נחת.</li>
+                <li><strong>יש סיבה לסבל:</strong> ההיאחזות, הרצון, והתשוקה לדברים קבועים יוצרים סבל.</li>
+                <li><strong>יש אפשרות לשחרור מהסבל:</strong> ניתן להשתחרר מהכאב דרך שינוי פנימי.</li>
+                <li><strong>יש דרך לשחרור:</strong> הדרך המתומנת היא המסלול שמוביל לכך.</li>
+            </ol>
+            <button onclick="showSection('eightfold')">רוצה להמשיך לדרך המתומנת?</button>
+        </div>
+
+        <div id="eightfold" class="section hidden">
+            <h2>הדרך המתומנת</h2>
+            <p>שמונה עקרונות שמובילים לתובנה, ריכוז ופעולה מיטיבה:</p>
+            <ul>
+                <li>1. השקפה נכונה</li>
+                <li>2. כוונה נכונה</li>
+                <li>3. דיבור נכון</li>
+                <li>4. פעולה נכונה</li>
+                <li>5. פרנסה נכונה</li>
+                <li>6. מאמץ נכון</li>
+                <li>7. תשומת לב נכונה</li>
+                <li>8. ריכוז נכון</li>
+            </ul>
+            <p>בכל אחד מהם אפשר לתרגל – ולהתבונן איך זה מתבטא בחיים.</p>
+            <button onclick="showSection('mindfulness')">הצג תרגול מיינדפולנס</button>
+        </div>
+
+        <div id="mindfulness" class="section hidden">
+            <h2>תרגול מיינדפולנס</h2>
+            <p>עצמי עיניים, שבי בנוח. נשמי עמוק – פנימה דרך האף... והחוצה דרך הפה.</p>
+            <p>שימי לב לתחושות הגוף. למה שמתרחש עכשיו, בלי לשפוט.</p>
+            <p>אם תרצי – אפשר לשלב דימוי: <em>“אני יושבת כמו הר רגוע, יציב, שלם.”</em></p>
+            <button onclick="alert('תודה על ההשתתפות במסלול הלימוד ❤')">סיום המסלול</button>
+        </div>
+    </div>
+
+    <script>
+        function showSection(id) {
+            document.getElementById(id).classList.remove("hidden");
+        }
+    </script>
+</body>
+</html>
